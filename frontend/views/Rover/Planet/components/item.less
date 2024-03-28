@@ -1,0 +1,331 @@
+.item {
+    width: 100%;
+    border: 1px solid @border-color;
+    .margin(0, 0, 30, 0);
+    .border-radius(20);
+    .padding(30, 30, 30, 30);
+    position: relative;
+    transition: @transition;
+    @apply dark: (border-dark-300 bg-dark-800);
+
+    .tag {
+        position: absolute;
+        right: -1px;
+        top: -1px;
+        border-radius: 0 29px 0 29px;
+        .padding(2, 15, 2, 15);
+        color: white;
+        .font-size(12);
+
+        &.owner {
+            background-color: #3c7eff;
+        }
+
+        &.writer {
+            background-color: #69c6e3;
+        }
+    }
+
+    &:hover {
+        box-shadow: 0 0 15px @border-shadow;
+        transition: @transition;
+    }
+
+    .header {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .planetInfo {
+            display: flex;
+            align-items: center;
+            flex: 1;
+
+            .avatar {
+                .height(80);
+                .width(80);
+                border: 1px solid @border-color;
+                background: @bg-color;
+                border-radius: 50%;
+                overflow: hidden;
+                padding: 3px;
+                @apply dark: (border-dark-50 bg-dark-200);
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 100%;
+                }
+            }
+
+            .info {
+                .padding(0, 0, 0, 20);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                .name {
+                    width: 100%;
+
+                    .font-size(18);
+                    .line-height(18);
+                    color: @text-color;
+                    .margin(0, 0, 8, 0);
+                    display: flex;
+                    align-items: center;
+
+                    span {
+                        max-width: 200px;
+                        line-height: 20px;
+                        .ellipsis();
+                        @apply dark: (text-light-900);
+                    }
+
+                    i {
+                        .margin(0, 0, 0, 10);
+                        .font-size(16);
+
+                        &.icon-cert {
+                            color: @text-active;
+                        }
+
+                        &.icon-twitter {
+                            .margin(0, 0, 0, 20);
+                            color: #55acee;
+                        }
+                    }
+                }
+
+                .pid {
+                    height: 24px;
+                    display: flex;
+                    align-items: center;
+
+                    span {
+                        .border-radius(20);
+                        background-color: @bg-color-hover;
+                        .padding(3, 10, 3, 10);
+                        .font-size(14);
+                        color: @text-fcolor;
+                        margin-right: 10px;
+                        display: flex;
+                        align-items: center;
+                        @apply dark: (bg-dark-300 text-light-900/60);
+
+                        i {
+                            .font-size(16);
+                            color: @text-active;
+                        }
+
+                        .icon-point {
+                            .margin(0, 4, 0, 0);
+                        }
+
+                        &.views {
+                            transition: @transition;
+
+                            .icon-views {
+                                font-weight: 600;
+                                color: #538cfe;
+                                transition: @transition;
+                            }
+
+                            &:hover {
+                                transition: @transition;
+                                background-color: #538cfe;
+                                cursor: pointer;
+
+                                .icon-views {
+                                    color: #fff;
+                                    transition: @transition;
+                                }
+                            }
+                        }
+
+                        &.link {
+                            transition: @transition;
+                            .center();
+                            .padding(5, 10, 5, 10);
+
+                            .icon-link {
+                                font-weight: 600;
+                                color: @text-color-grey;
+                                transition: @transition;
+                                .font-size(12);
+                            }
+
+                            &:hover {
+                                transition: @transition;
+                                background-color: @text-color;
+                                cursor: pointer;
+
+                                .icon-link {
+                                    color: #fff;
+                                    transition: @transition;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .planetData {
+            width: 40%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .dataItem {
+                .title {
+                    color: @text-fcolor;
+                    .font-size(14);
+                    display: block;
+                    .padding(0, 0, 5, 0);
+                    @apply dark: (text-light-900/60);
+
+                    em {
+                        font-style: normal;
+                        .font-size(12);
+                        padding-left: 2px;
+                        color: @text-fcolor;
+                    }
+                }
+
+                .data {
+                    .font-size(22);
+                    display: block;
+                    text-align: center;
+
+                }
+            }
+        }
+    }
+
+    .pbox {
+        width: 100%;
+        .margin(20, 0, 0, 0);
+
+        .profile {
+            width: 100%;
+            .font-size(14);
+            color: @text-fcolor;
+            .line-height(20);
+            word-break: break-word;
+            @apply dark: (text-light-900/60);
+        }
+
+        .info {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            .margin(20, 0, 0, 0);
+
+            .btnbox {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                &.disabled {
+                    opacity: .5;
+                    .pointer();
+                }
+
+                button {
+                    .border-radius(12);
+                    .padding(12, 15, 12, 15);
+                    .margin(0, 0, 0, 20);
+                    .font-size(16);
+                    border: none;
+                    color: white;
+                    transition: @transition;
+
+                    &.manage {
+                        background-color: #c751fe;
+                    }
+
+                    &.create {
+                        background-color: none;
+                        border: 1px solid @border-color-active;
+                        box-sizing: border-box;
+                        color: @text-active;
+                        .padding(12, 25, 12, 25);
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+                        transition: @transition;
+                        opacity: 0.8;
+
+                        &.create {
+                            background-color: @bg-color-body-active;
+                            color: @text-color-inverse;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 0) and (max-width: 750px) {
+    .item {
+        .header {
+            flex-wrap: wrap;
+
+            .planetInfo {
+                width: 100%;
+
+                .info {
+                    .name {
+                        span {
+                            max-width: 150px;
+                        }
+                    }
+                }
+            }
+
+            .planetData {
+                width: 100%;
+                .padding(10, 0, 10, 0);
+            }
+        }
+
+        .pbox {
+            .profile {
+                width: 100%;
+            }
+
+            .info {
+                flex-wrap: wrap;
+
+                .writer {
+                    width: 100%;
+                    .margin(0, 0, 20, 0);
+
+                    .avatar {
+                        // .width(60);
+                        // .height(60);
+                        width: 35px;
+                        height: 35px;
+                    }
+                }
+
+                .btnbox {
+                    width: 100%;
+
+                    button {
+                        width: 100%;
+                        margin: 0;
+
+                        &.create {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

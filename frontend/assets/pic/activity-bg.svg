@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920px" height="2801px" viewBox="0 0 1920 2801" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="58.8788729%" gradientTransform="translate(0.500000,0.500000),scale(0.829956,1.000000),rotate(91.157294),translate(-0.500000,-0.500000)" id="radialGradient-1">
+            <stop stop-color="#3775EE" stop-opacity="0.601575305" offset="0%"></stop>
+            <stop stop-color="#253A6B" stop-opacity="0.506928984" offset="41.7635831%"></stop>
+            <stop stop-color="#0D0F26" stop-opacity="0" offset="79.3093381%"></stop>
+            <stop stop-color="#000000" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.421754383">
+        <g fill="url(#radialGradient-1)">
+            <ellipse cx="959.976786" cy="1131" rx="2162" ry="1794.36411"></ellipse>
+        </g>
+    </g>
+</svg>

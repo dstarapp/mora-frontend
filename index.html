@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html translate="no">
+    <head>
+        <meta charset="UTF-8" />
+
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+        <title>Mora - Eternal Fellowship</title>
+        <meta name="description" content="Mora - Eternal Fellowship" />
+
+        <!-- ios meta tags & icons-->
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Mora" />
+        <link rel="apple-touch-startup-image" href="/_/raw/icon-180.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="/_/raw/icon-57.png" />
+        <link rel="apple-touch-icon" sizes="60x60" href="/_/raw/icon-60.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/_/raw/icon-72.png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="/_/raw/icon-76.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/_/raw/icon-114.png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="/_/raw/icon-120.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="/_/raw/icon-144.png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="/_/raw/icon-152.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/_/raw/icon-180.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/_/raw/icon-192.png" />
+        <link rel="manifest" href="/manifest.json" />
+        <base href="/" />
+
+        <!-- shortcut icon -->
+        <link rel="icon" type="image/svg+xml" href="/frontend/assets/svg/logos.svg" />
+    </head>
+
+    <body>
+        <div id="root"></div>
+        <script src="/privateConfig.js"></script>
+        <script type="module">
+            /**
+             * @dfinity/agent requires this. Can be removed once it's fixed
+             */
+            import { Buffer } from 'buffer';
+
+            window.global = window;
+            window.Buffer = Buffer;
+
+            import * as process from 'process';
+            window.process = process;
+        </script>
+        <script type="module" src="/frontend/main.ts"></script>
+        <script defer data-domain="mora.app" src="https://plausible.io/js/script.js"></script>
+    </body>
+</html>

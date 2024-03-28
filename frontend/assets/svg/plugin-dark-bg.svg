@@ -1,0 +1,38 @@
+<svg width="1512" height="890" viewBox="0 0 1512 890" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1512" height="803" fill="url(#paint0_linear_5561_1033)"/>
+<g filter="url(#filter0_f_5561_1033)">
+<path d="M615.809 324.245C221.822 382.561 0 620.203 0 620.203C0 620.203 141.477 644.82 382.502 685.102C623.526 725.383 765.003 750 765.003 750L1407.56 586.636L1512 162C1512 162 787.411 298.846 615.809 324.245Z" fill="url(#paint1_linear_5561_1033)"/>
+</g>
+<g filter="url(#filter1_f_5561_1033)">
+<path d="M1512 128H0C417.792 128 534.042 452 539.943 614H1017.92C1043.41 452 1177.9 128 1512 128Z" fill="url(#paint2_linear_5561_1033)"/>
+</g>
+<defs>
+<filter id="filter0_f_5561_1033" x="-140" y="22" width="1792" height="868" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="70" result="effect1_foregroundBlur_5561_1033"/>
+</filter>
+<filter id="filter1_f_5561_1033" x="-140" y="-12" width="1792" height="766" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="70" result="effect1_foregroundBlur_5561_1033"/>
+</filter>
+<linearGradient id="paint0_linear_5561_1033" x1="756" y1="0" x2="756" y2="817.792" gradientUnits="userSpaceOnUse">
+<stop stop-color="#152B54"/>
+<stop offset="0.5" stop-color="#064B47"/>
+<stop offset="0.911458" stop-color="#0F0F0F" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint1_linear_5561_1033" x1="876.126" y1="231.934" x2="1137.45" y2="588.681" gradientUnits="userSpaceOnUse">
+<stop stop-color="#36484D" stop-opacity="0.90625"/>
+<stop offset="0.313746" stop-color="#3B516B"/>
+<stop offset="0.625001" stop-color="#563873"/>
+<stop offset="1" stop-color="#461A56"/>
+</linearGradient>
+<linearGradient id="paint2_linear_5561_1033" x1="876.126" y1="185.803" x2="1076.86" y2="517.349" gradientUnits="userSpaceOnUse">
+<stop stop-color="#285A65" stop-opacity="0.90625"/>
+<stop offset="0.313746" stop-color="#41556B"/>
+<stop offset="0.625001" stop-color="#494874"/>
+<stop offset="1" stop-color="#5E316F"/>
+</linearGradient>
+</defs>
+</svg>

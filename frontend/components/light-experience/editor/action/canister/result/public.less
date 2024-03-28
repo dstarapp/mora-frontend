@@ -1,0 +1,140 @@
+.main-type {
+    display: flex;
+    align-items: center;
+
+    .type {
+        font-weight: 400;
+        font-size: 14px;
+        color: #000000;
+        flex-shrink: 0;
+        @apply dark: (text-light-900);
+
+        i {
+            font-style: normal;
+            font-size: 12px;
+            color: #999;
+            margin-left: 5px;
+        }
+    }
+
+    .select {
+        margin-left: 10px;
+
+        i {
+            font-size: 16px;
+            color: #4c4f6b;
+            cursor: pointer;
+            @apply dark: (text-light-900/60);
+        }
+    }
+
+    .to-type {
+        margin-left: 10px;
+    }
+
+    .add-success {
+        .center();
+        border: 1px solid #dddddd;
+        border-radius: 8px;
+        padding: 2px 5px 4px 8px;
+        margin-left: 10px;
+
+        .delete {
+            cursor: pointer;
+            margin-left: 10px;
+            line-height: 16px;
+
+            i {
+                font-size: 14px;
+                color: #999;
+            }
+        }
+
+        .name {
+            font-weight: 400;
+            font-size: 12px;
+            color: #000000;
+            line-height: 12px;
+            @apply dark: (text-light-900);
+
+            .icon-edit {
+                font-size: 14px;
+                color: #999;
+                margin-left: 10px;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .expand {
+        margin-left: 10px;
+
+        i {
+            display: inline-block;
+            font-size: 18px;
+            color: #4c4f6b;
+            cursor: pointer;
+            transition: @transition;
+            @apply dark: (text-light-900/60);
+
+            &.open {
+                transform: rotate(180deg);
+                transition: @transition;
+            }
+        }
+    }
+
+    .input {
+        display: flex;
+        margin-left: 10px;
+        position: relative;
+
+        div {
+            font-size: 16px;
+            color: #4c4f6b;
+            cursor: pointer;
+        }
+
+        .add {}
+
+        .decrease {
+            margin-left: 15px;
+        }
+    }
+}
+
+.expand-list {
+    margin-top: 10px;
+    padding-left: 20px;
+    border-left: 1px solid #dddddd;
+    @apply dark: (border-dark-100);
+
+    .items {
+        .item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+
+            >span {
+                margin-right: 10px;
+                font-size: 14px;
+                line-height: 16px;
+                color: #000;
+                float: left;
+                @apply dark: (text-light-900);
+            }
+
+            .wrapped-result-editing-content {
+                .basic-result-editing-content {
+                    .main-type {
+                        .type {
+                            font-size: 12px;
+                            color: #999;
+                            @apply dark: (text-light-900/60);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

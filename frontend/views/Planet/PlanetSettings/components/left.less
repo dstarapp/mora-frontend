@@ -1,0 +1,537 @@
+.left {
+	display: flex;
+	flex-direction: column;
+	background: @bg-color;
+	flex: 1;
+	.padding(38, 46, 38, 46);
+	.border-radius(25);
+	.margin(0, 0, 30, 0);
+	align-items: center;
+	@apply dark: (bg-dark-600);
+
+	h2 {
+		display: flex;
+		align-items: center;
+		font-style: normal;
+		font-weight: 500;
+		.font-size(24);
+		.line-height(29);
+		color: @text-color;
+		margin: 0;
+		width: 100%;
+		@apply dark: (text-light-900);
+	}
+
+	.avatarBox {
+		.center();
+		border: 1px solid @border-color;
+		border-radius: 50%;
+		position: relative;
+		cursor: pointer;
+		.height(100);
+		.width(100);
+		.margin(26, 0, 0, 0);
+		@apply dark: (border-dark-100);
+
+		.skeletonAvatar {
+			.height(100);
+			.width(100);
+			border-radius: 100%;
+		}
+	}
+
+	.from {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		.margin(40, 0, 0, 0);
+
+		.item {
+			display: flex;
+			width: 100%;
+			.margin(0, 0, 30, 0);
+
+			.label {
+				.width(200);
+				.height(45);
+				font-style: normal;
+				font-weight: 400;
+				.font-size(16);
+				color: @text-color;
+				display: flex;
+				align-items: center;
+				@apply dark: (text-light-900/80);
+			}
+
+			.m {
+				display: flex;
+				flex: 1;
+				align-items: center;
+			}
+
+			.inputBox {
+				display: flex;
+				flex: 1;
+				.height(45);
+				align-items: center;
+				font-style: normal;
+				font-weight: 400;
+				.font-size(16);
+				color: @text-fcolor;
+				@apply dark: (text-light-900/60);
+
+				&.blue {
+					color: @text-active;
+				}
+
+				:deep(.el-input) {
+					height: 100%;
+					background: #fff;
+					border: 2px solid @text-active;
+					box-shadow: 0 0 10px @border-shadow;
+					.border-radius(12);
+					.margin(0, 13, 0, 0);
+				}
+
+				p {
+					&.name {
+						display: block;
+						max-width: 250px;
+						.ellipsis();
+					}
+				}
+			}
+
+			.textBox {
+				display: flex;
+				flex: 1;
+				align-items: center;
+				font-style: normal;
+				font-weight: 400;
+				.font-size(16);
+				color: @text-fcolor;
+				@apply dark: (text-light-900/60);
+
+				p {
+					word-break: break-all;
+				}
+			}
+
+			.index {
+
+				.switch {
+					display: flex;
+					align-items: center;
+					.height(45);
+
+					:deep(.el-switch) {
+						height: auto;
+						line-height: normal;
+					}
+				}
+
+				p {
+					width: 100%;
+					display: block;
+					word-wrap: break-word;
+					.font-size(14);
+					color: @text-fcolor;
+					@apply dark: (text-light-900/60);
+					opacity: .6;
+				}
+			}
+
+			.textareaBox {
+				display: flex;
+				flex: 1;
+				align-items: center;
+				font-style: normal;
+				.font-size(16);
+				color: @text-fcolor;
+				align-items: flex-start;
+				word-break: break-word;
+				@apply dark: (text-light-900/60);
+
+				:deep(.el-textarea) {
+					height: 100%;
+					background: #fff;
+					border: 2px solid @text-active;
+					box-shadow: 0 0 10px @border-shadow;
+					.border-radius(12);
+					.margin(0, 13, 0, 0);
+					.padding(15, 20, 15, 20);
+					@apply dark: (bg-dark-800);
+
+					textarea {
+						resize: none;
+						padding: 0;
+					}
+
+					.el-input__count {
+						.font-size(14);
+					}
+				}
+			}
+
+			.writerBox {
+				display: flex;
+				flex: 1;
+				align-items: center;
+				font-style: normal;
+				font-weight: 400;
+				.font-size(16);
+				color: @text-fcolor;
+				align-items: flex-start;
+				@apply dark: (text-light-900/60);
+
+				p {
+					.center();
+					.height(25);
+					background: @bg-color-grey;
+					.border-radius(30);
+					.padding(0, 16, 0, 16);
+					font-style: normal;
+					font-weight: 400;
+					.font-size(16);
+					color: @text-color;
+					@apply dark: (text-light-900 bg-dark-900);
+				}
+			}
+
+			.edit {
+				.height(45);
+				font-style: normal;
+				font-weight: 400;
+				.font-size(16);
+				display: flex;
+				align-items: center;
+				color: @text-active;
+				cursor: pointer;
+				.margin(0, 0, 0, 65);
+			}
+
+			.save-button {
+				justify-content: center;
+				display: flex;
+				.width(150);
+				margin: 0;
+
+				div {
+					.border-radius(10);
+					.center();
+					.height(45);
+					flex: 1;
+					font-style: normal;
+					font-weight: 350;
+					.font-size(16);
+					.line-height(19);
+					cursor: pointer;
+					transition: @transition;
+					background: @bg-color-body-active;
+					color: @text-color-inverse;
+
+					&:hover {
+						opacity: 0.85;
+					}
+
+					&.disable {
+						background: @bg-color-body-disable;
+						color: @bg-color;
+						cursor: not-allowed;
+					}
+
+					&.loading {
+						transition: @transition;
+						background: @bg-color-body-loading;
+						cursor: not-allowed;
+					}
+
+					img {
+						.margin(0, 5, 0, 0);
+					}
+				}
+			}
+		}
+	}
+
+	.subscription {
+		display: flex;
+		width: 100%;
+		flex-direction: column;
+
+		h3 {
+			display: flex;
+			width: 100%;
+			font-style: normal;
+			font-weight: 500;
+			.font-size(24);
+			.line-height(29);
+			color: @text-color;
+			border-top: 1px solid @border-color;
+			.padding(30);
+			.margin(0, 0, 30, 0);
+
+			@apply dark: (border-dark-100 text-light-900/80);
+		}
+
+		.list {
+			display: flex;
+			flex-direction: column;
+
+			.item {
+				display: flex;
+				width: 100%;
+				.height(45);
+				.margin(0, 0, 30, 0);
+
+				.select {
+					display: flex;
+					.width(180);
+
+					:deep(.el-select) {
+						.height(45);
+
+						.el-input {
+							.height(45);
+						}
+					}
+				}
+
+				.priceBox {
+					.center();
+					flex: 1;
+					.height(45);
+
+					.price {
+						display: flex;
+						cursor: pointer;
+						.height(45);
+						align-items: center;
+						transition: @transition;
+						color: @text-color;
+						@apply dark: (text-light-800);
+
+						&.disable {
+							// cursor: not-allowed;
+							pointer-events: none;
+							opacity: 0;
+						}
+
+						&.edit {
+							.center();
+							background: @bg-color-grey;
+							.border-radius(15);
+							.width(180);
+							transition: @transition;
+							@apply dark: (bg-dark-900);
+
+							:deep(.el-input) {
+								.height(45);
+								.width(105);
+
+								.el-input__wrapper {
+									padding: 0;
+									.border-radius(12) !important;
+									@apply dark: ( !bg-dark-900);
+
+									.el-input__inner {
+
+										font-style: normal;
+										font-weight: 700;
+										.font-size(28);
+										.line-height(34);
+										color: @text-color;
+										.margin(0, 0, 0, 4);
+										@apply dark: (text-light-900);
+									}
+								}
+							}
+						}
+
+						em {
+							font-style: normal;
+							font-weight: 400;
+							.font-size(16);
+							.line-height(19);
+
+						}
+
+						p {
+
+							font-style: normal;
+							font-weight: 700;
+							.font-size(28);
+							.line-height(34);
+							.margin(0, 0, 0, 4);
+						}
+					}
+				}
+
+				.btn {
+					.width(70);
+					.height(45);
+					background: @bg-color-body-active;
+					.border-radius(10);
+					.center();
+					cursor: pointer;
+					transition: @transition;
+
+					&:hover {
+						opacity: 0.85;
+						transition: @transition;
+					}
+
+					.icon-decrease {
+						.font-size(24);
+						color: @text-color-inverse;
+						transition: @transition;
+					}
+
+					.icon-add {
+						.font-size(17);
+						color: @text-color-inverse;
+						transition: @transition;
+					}
+				}
+			}
+		}
+
+		.confirm-button {
+			justify-content: center;
+			display: flex;
+			.width(300);
+			.margin(27, 0, 20, 0);
+			margin-left: auto;
+			margin-right: auto;
+
+			div {
+				.border-radius(15);
+				.center();
+				.height(60);
+				min-height: 60px;
+				flex: 1;
+				font-style: normal;
+				font-weight: 350;
+				.font-size(18);
+				.line-height(22);
+				cursor: pointer;
+				transition: @transition;
+				background: @bg-color-body-active;
+				color: @text-color-inverse;
+
+				&:hover {
+					cursor: pointer;
+					opacity: 0.85;
+					box-shadow: 0 0 15px rgba(128, 110, 242, 0.5);
+					transition: @transition;
+				}
+
+				&.disable {
+					background: @bg-color-body-disable;
+					color: @bg-color;
+					cursor: not-allowed;
+				}
+
+				&.loading {
+					transition: @transition;
+					background: @bg-color-body-loading;
+				}
+
+				img {
+					.margin(0, 5, 0, 0);
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 0) and (max-width: 750px) {
+	.left {
+		flex: none;
+		width: 100%;
+		.margin-media(0, 0, 20, 0);
+		.padding-media(20, 20, 20, 20);
+
+		h2 {
+			display: none;
+		}
+
+		.from {
+			.item {
+				flex-direction: column;
+
+				.label {
+					.font-size(16);
+					font-weight: 500;
+				}
+
+				.m {
+					align-items: flex-start;
+
+					.edit {
+						margin-left: 20px;
+					}
+
+					&.t {
+						align-items: center;
+					}
+
+					&.aifs {
+						.edit {
+							align-items: flex-start;
+						}
+					}
+				}
+
+				.inputBox {
+					.height(80);
+				}
+
+				.save-button {
+					.width(160);
+
+					div {
+						.height(80);
+					}
+				}
+			}
+		}
+
+		.subscription {
+			h3 {
+				.font-size(18);
+			}
+
+			.confirm-button {
+				width: 70%;
+				margin: 15px auto;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 750px) and (max-width: 1240px) {
+	.left {
+		.padding(38, 30, 38, 30);
+
+		.from {
+			.item {
+				.label {
+					.height(60);
+				}
+
+				.inputBox {
+					.height(60);
+				}
+
+				.save-button {
+					.width(180);
+
+					div {
+						.height(60);
+					}
+				}
+			}
+		}
+	}
+}

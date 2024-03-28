@@ -1,0 +1,172 @@
+{
+    "typescript.tsdk": "./node_modules/typescript/lib",
+    "npm.packageManager": "pnpm",
+    "editor.tabSize": 4,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "files.eol": "\n",
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false,
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/*.log": true,
+        "**/*.log*": true,
+        "**/bower_components": true,
+        "**/dist": true,
+        "**/elehukouben": true,
+        "**/.git": true,
+        "**/.gitignore": true,
+        "**/.svn": true,
+        "**/.DS_Store": true,
+        "**/.idea": true,
+        "**/.vscode": false,
+        "**/yarn.lock": true,
+        "**/tmp": true,
+        "out": true,
+        "dist": true,
+        "node_modules": true,
+        "CHANGELOG.md": true,
+        "examples": true,
+        "res": true,
+        "screenshots": true,
+        "yarn-error.log": true,
+        "**/.yarn": true
+    },
+    "files.exclude": {
+        "**/.cache": true,
+        "**/.editorconfig": true,
+        "**/.eslintcache": true,
+        "**/bower_components": true,
+        "**/.idea": true,
+        "**/tmp": true,
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true
+    },
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/.vscode/**": true,
+        "**/node_modules/**": true,
+        "**/tmp/**": true,
+        "**/bower_components/**": true,
+        "**/dist/**": true,
+        "**/yarn.lock": true
+    },
+    "stylelint.enable": true,
+    "stylelint.packageManager": "yarn",
+    "path-intellisense.mappings": {
+        "@/": "${workspaceRoot}/src"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[less]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    },
+    "[vue]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": "explicit"
+        },
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "i18n-ally.localesPaths": [
+        "frontend/i18n/lang"
+    ],
+    "i18n-ally.keystyle": "nested",
+    "i18n-ally.sortKeys": true,
+    "i18n-ally.namespace": true,
+    "i18n-ally.pathMatcher": "{locale}/{namespaces}.{ext}",
+    "i18n-ally.enabledParsers": [
+        "yaml"
+    ],
+    "i18n-ally.sourceLanguage": "en_us",
+    "i18n-ally.displayLanguage": "en_us",
+    "i18n-ally.enabledFrameworks": [
+        "vue",
+        "react"
+    ],
+    "i18n-ally.translate.engines": [
+        "deepl"
+    ],
+    "i18n-ally.translate.deepl.useFreeApiEntry": true,
+    "cSpell.words": [
+        "2vxsx-fae",
+        "amfe",
+        "Arweave",
+        "Astrox",
+        "autotyper",
+        "bignumber",
+        "ckbtc",
+        "codemirror",
+        "databox",
+        "dfinity",
+        "dompurify",
+        "eventbus",
+        "flexbugs",
+        "icnaming",
+        "iconfont",
+        "inpage",
+        "IPFS",
+        "katex",
+        "luxon",
+        "Metabox",
+        "metaverse",
+        "naction",
+        "nanos",
+        "neverthrow",
+        "nprogress",
+        "openlogin",
+        "originjs",
+        "Parens",
+        "popconfirm",
+        "prismjs",
+        "pxtorem",
+        "QmfVV8acYbEnhjMN4G8Pru2gzLcsam8Y12zZt2TTNvsy9S",
+        "QmPMgAEogb3oaygekaEVZGvTtRcrag9RUYiizt7sPk4oSW",
+        "qrcode",
+        "qrcodejs",
+        "rjaros",
+        "secp",
+        "snabbdom",
+        "splitpanes",
+        "stylelint",
+        "subaccount",
+        "Usergeek",
+        "vconsole",
+        "vuedraggable",
+        "vuex",
+        "wangeditor",
+        "windicss",
+        "zoomout",
+        "μrec"
+    ],
+    "vue.features.codeActions.enable": false,
+    "vue.codeActions.enabled": false
+}

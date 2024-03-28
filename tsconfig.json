@@ -1,0 +1,32 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "strict": true,
+        "noImplicitAny": false,
+        "jsx": "preserve",
+        "sourceMap": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "lib": ["esnext", "dom"],
+        "types": ["node", "vite/client", "element-plus/global"],
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./frontend/*"],
+            "canisters/main": [".dfx/local/canisters/main"]
+        },
+        "skipLibCheck": true
+    },
+    "include": [
+        "frontend/**/*.ts",
+        "frontend/**/*.d.ts",
+        "frontend/**/*.tsx",
+        "frontend/**/*.vue",
+        ".d.ts",
+        "frontend/request/canister/did/user_allot.did.js",
+        "frontend/views/Browser/Article/html2canvas-worker.js",
+        "frontend/views/Browser/Article/html2canvas-worker.js"
+, "frontend/utils/luck.ts"    ],
+    "exclude": ["node_modules"]
+}

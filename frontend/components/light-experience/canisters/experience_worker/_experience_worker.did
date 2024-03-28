@@ -1,0 +1,384 @@
+type CanisterStatus = variant { stopped; stopping; running };
+type CanisterStatusResult = record {
+  status : CanisterStatus;
+  memory_size : nat;
+  cycles : nat;
+  settings : DefiniteCAnisterSettings;
+  idle_cycles_burned_per_day : nat;
+  module_hash : opt vec nat8;
+};
+type DefiniteCAnisterSettings = record {
+  freezing_threshold : nat;
+  controllers : vec principal;
+  memory_allocation : nat;
+  compute_allocation : nat;
+};
+type DoneLightExperienceWorker = record {
+  id : text;
+  status : LightExperienceStatus;
+  created : nat64;
+  done_info : LightExperienceInfo;
+  updated : nat64;
+  done_content : LightExperienceContent;
+  frozen_reason : opt text;
+};
+type ExperiencePermission = variant {
+  ManagerPermission;
+  ManagerConfig;
+  WorkerPurchase;
+  WorkerConfig;
+  ManagerQuery;
+  WorkerLog;
+  ManagerUpgrade;
+  WorkerStatus;
+  WorkerCollect;
+  WorkerPermission;
+  ManagerSettings;
+  ManagerLog;
+  ManagerRefresh;
+  WorkerFind;
+  ManagerFind;
+  ManagerInsert;
+  ManagerWasm;
+  WorkerInsert;
+  WorkerQuery;
+};
+type ExperienceQueryStatus = variant {
+  Done;
+  Auditing;
+  DoneAuditing;
+  Rejected;
+  DoneRejected;
+  Removed;
+  DoneEditing;
+  Frozen;
+  Editing;
+};
+type ExperienceQueryWrappedStatus = variant {
+  All;
+  Online;
+  Review;
+  Draft;
+  Offline;
+  Trash;
+};
+type ExperienceUserCollection = record {
+  id : text;
+  user : principal;
+  canister_id : principal;
+  timestamp : nat64;
+};
+type LightExperienceAuditingResult = record {
+  id : text;
+  code : text;
+  hash : text;
+  timestamp : nat64;
+  price : LightExperienceDonePrice;
+  reason : opt text;
+};
+type LightExperienceContent = record {
+  core_json : text;
+  experience_json : text;
+};
+type LightExperienceDoneInfo = record {
+  hash : text;
+  canister_id : principal;
+  timestamp : nat64;
+  price : LightExperienceDonePrice;
+};
+type LightExperienceDonePrice = variant {
+  Free;
+  Price : record { address : TransferUser; price : Price };
+};
+type LightExperienceDonePriceArg = record {
+  timestamp : nat64;
+  price : LightExperienceDonePrice;
+};
+type LightExperienceFrozenByAuditor = record {
+  auditor : principal;
+  timestamp : nat64;
+  reason : text;
+};
+type LightExperienceInfo = record {
+  categories : vec text;
+  thumbnail : text;
+  runnable_planet : LightExperienceRunnablePlanet;
+  name : text;
+  cover : text;
+  tags : vec text;
+  instruction : text;
+};
+type LightExperienceMessage = record {
+  read : bool;
+  message : LightExperienceMessageContent;
+  index : nat32;
+};
+type LightExperienceMessageContent = variant {
+  AuditingResult : LightExperienceAuditingResult;
+  FrozenByAuditor : LightExperienceFrozenByAuditor;
+  FrozenByUserSelf : LightExperienceStatusFrozenArg;
+};
+type LightExperienceReceipt = record {
+  id : text;
+  created : nat64;
+  hash : text;
+  canister_id : principal;
+  seller : principal;
+  done_info : LightExperienceInfo;
+};
+type LightExperienceRunnablePlanet = variant {
+  All;
+  None;
+  Includes : vec text;
+  Excludes : vec text;
+};
+type LightExperienceStatus = variant {
+  Done : LightExperienceStatusDone;
+  Auditing : LightExperienceStatusAuditing;
+  DoneAuditing : LightExperienceStatusDoneAuditing;
+  Rejected : LightExperienceStatusRejected;
+  DoneRejected : LightExperienceStatusDoneRejected;
+  Removed : LightExperienceStatusRemoved;
+  DoneEditing : LightExperienceStatusDoneEditing;
+  Frozen : LightExperienceStatusFrozen;
+  Editing : LightExperienceStatusEditing;
+};
+type LightExperienceStatusAuditing = record {
+  reasons : vec nat32;
+  code : text;
+  hash : text;
+  timestamp : nat64;
+  price : LightExperienceDonePrice;
+};
+type LightExperienceStatusAuditingArg = record {
+  code : text;
+  hash : text;
+  timestamp : nat64;
+  price : LightExperienceDonePrice;
+};
+type LightExperienceStatusDone = record {
+  hash : text;
+  canister_id : principal;
+  history : vec LightExperienceDoneInfo;
+  timestamp : nat64;
+  price : LightExperienceDonePrice;
+};
+type LightExperienceStatusDoneArg = record {
+  id : text;
+  hash : text;
+  canister_id : principal;
+  timestamp : nat64;
+};
+type LightExperienceStatusDoneAuditing = record {
+  reasons : vec nat32;
+  code : text;
+  done : LightExperienceStatusDone;
+  hash : text;
+  timestamp : nat64;
+  price : LightExperienceDonePrice;
+};
+type LightExperienceStatusDoneEditing = record {
+  reasons : vec nat32;
+  done : LightExperienceStatusDone;
+  timestamp : nat64;
+};
+type LightExperienceStatusDoneRejected = record {
+  reasons : vec nat32;
+  done : LightExperienceStatusDone;
+  timestamp : nat64;
+  reason : text;
+};
+type LightExperienceStatusDoneRestoreArg = record { timestamp : nat64 };
+type LightExperienceStatusEditing = record {
+  reasons : vec nat32;
+  timestamp : nat64;
+};
+type LightExperienceStatusEditingArg = record { timestamp : nat64 };
+type LightExperienceStatusFrozen = record {
+  done : opt LightExperienceStatusDone;
+  timestamp : nat64;
+  done_auditing : opt LightExperienceStatusDoneAuditing;
+  done_editing : opt LightExperienceStatusDoneEditing;
+  done_rejected : opt LightExperienceStatusDoneRejected;
+  reason : text;
+};
+type LightExperienceStatusFrozenArg = record {
+  timestamp : nat64;
+  reason : text;
+};
+type LightExperienceStatusRejected = record {
+  reasons : vec nat32;
+  timestamp : nat64;
+  reason : text;
+};
+type LightExperienceStatusRejectedArg = record {
+  id : text;
+  timestamp : nat64;
+  reason : text;
+};
+type LightExperienceStatusRemoved = record {
+  editing : opt LightExperienceStatusEditing;
+  timestamp : nat64;
+  rejected : opt LightExperienceStatusRejected;
+};
+type LightExperienceWorker = record {
+  id : text;
+  status : LightExperienceStatus;
+  created : nat64;
+  editing_info : LightExperienceInfo;
+  done_info : LightExperienceInfo;
+  updated : nat64;
+  done_content : LightExperienceContent;
+  editing_content : LightExperienceContent;
+};
+type Log = record { content : text; time : nat64; level : LogLevel };
+type LogLevel = variant { Error; Info; Warn; Debug; Trace };
+type MotokoResult = variant { ok; err : text };
+type MotokoResult_1 = variant { ok : nat32; err : text };
+type Page = record { page : nat32; size : nat32 };
+type PageData = record {
+  all : nat32;
+  data : vec ExperienceUserCollection;
+  page : nat32;
+  size : nat32;
+};
+type PageData_1 = record {
+  all : nat32;
+  data : vec LightExperienceWorker;
+  page : nat32;
+  size : nat32;
+};
+type PageData_2 = record {
+  all : nat32;
+  data : vec LightExperienceReceipt;
+  page : nat32;
+  size : nat32;
+};
+type PageData_3 = record {
+  all : nat32;
+  data : vec TrimmedLightExperienceWorker;
+  page : nat32;
+  size : nat32;
+};
+type PageData_4 = record {
+  all : nat32;
+  data : vec LightExperienceMessage;
+  page : nat32;
+  size : nat32;
+};
+type PageData_5 = record {
+  all : nat32;
+  data : vec Log;
+  page : nat32;
+  size : nat32;
+};
+type Price = record { e8s : nat64 };
+type TransferUser = variant { "principal" : principal; address : text };
+type TrimmedLightExperienceWorker = record {
+  id : text;
+  status : LightExperienceStatus;
+  created : nat64;
+  editing_info : LightExperienceInfo;
+  done_info : LightExperienceInfo;
+  updated : nat64;
+};
+type WalletReceiveResult = record { accepted : nat64 };
+service : {
+  canister_status : () -> (CanisterStatusResult);
+  config_maintaining_find : () -> (bool) query;
+  config_maintaining_set : (bool) -> (bool);
+  experience_auditing : (principal, text, LightExperienceStatusAuditingArg) -> (
+      MotokoResult,
+    );
+  experience_collect : (principal, ExperienceUserCollection) -> (MotokoResult);
+  experience_collect_delete : (principal, text) -> (MotokoResult);
+  experience_done : (principal, text, LightExperienceStatusDoneArg) -> (
+      MotokoResult_1,
+    );
+  experience_done_price : (principal, text, LightExperienceDonePriceArg) -> (
+      MotokoResult,
+    );
+  experience_done_restore : (
+      principal,
+      text,
+      LightExperienceStatusDoneRestoreArg,
+    ) -> (MotokoResult);
+  experience_edit : (text, LightExperienceInfo, LightExperienceContent) -> (
+      MotokoResult,
+    );
+  experience_editing : (
+      principal,
+      text,
+      LightExperienceStatusEditingArg,
+      opt record { LightExperienceInfo; LightExperienceContent },
+    ) -> (MotokoResult);
+  experience_find_experience : (principal, text) -> (
+      opt LightExperienceWorker,
+    ) query;
+  experience_find_experience_editing_info : (principal, text) -> (
+      opt LightExperienceInfo,
+    ) query;
+  experience_find_user_collections : (principal, Page) -> (PageData) query;
+  experience_find_user_experiences : (principal, Page) -> (PageData_1) query;
+  experience_find_user_receipts : (principal, Page) -> (PageData_2) query;
+  experience_find_users : () -> (vec text) query;
+  experience_frozen : (
+      principal,
+      text,
+      LightExperienceStatusFrozenArg,
+      opt principal,
+    ) -> (MotokoResult_1);
+  experience_insert : (
+      principal,
+      text,
+      LightExperienceInfo,
+      LightExperienceContent,
+    ) -> (MotokoResult);
+  experience_insert_experience : (principal, LightExperienceWorker) -> (
+      MotokoResult,
+    );
+  experience_insert_user : (principal) -> (MotokoResult);
+  experience_purchase : (principal, LightExperienceReceipt) -> (MotokoResult);
+  experience_purchase_delete : (principal, text) -> (MotokoResult);
+  experience_query_all_experiences : (Page) -> (PageData_3) query;
+  experience_query_collected : (text) -> (bool) query;
+  experience_query_collections : (Page) -> (PageData) query;
+  experience_query_experience : (text) -> (opt LightExperienceWorker) query;
+  experience_query_experience_done : (principal, text) -> (
+      opt DoneLightExperienceWorker,
+    ) query;
+  experience_query_experience_done_by_id : (text) -> (
+      opt DoneLightExperienceWorker,
+    ) query;
+  experience_query_experiences : (vec ExperienceQueryStatus, Page) -> (
+      PageData_3,
+    ) query;
+  experience_query_experiences_by_wrapped_status : (
+      ExperienceQueryWrappedStatus,
+      Page,
+    ) -> (PageData_3) query;
+  experience_query_messages : (Page) -> (PageData_4) query;
+  experience_query_receipts : (Page) -> (PageData_2) query;
+  experience_read_message : (nat32) -> (MotokoResult);
+  experience_rejected : (principal, text, LightExperienceStatusRejectedArg) -> (
+      MotokoResult_1,
+    );
+  experience_removed : (principal, text, LightExperienceStatusEditingArg) -> (
+      MotokoResult,
+    );
+  logs_delete : (nat32) -> (bool);
+  logs_find_by_page : (Page) -> (PageData_5) query;
+  permissions_find : () -> (
+      vec record { text; vec ExperiencePermission },
+    ) query;
+  permissions_grant_all_permissions : (principal) -> (bool);
+  permissions_has_all_permissions : (principal) -> (bool) query;
+  permissions_modify : (
+      principal,
+      vec ExperiencePermission,
+      vec ExperiencePermission,
+    ) -> ();
+  permissions_revoke_all_permissions : (principal) -> (bool);
+  wallet_balance : () -> (nat) query;
+  wallet_receive : () -> (WalletReceiveResult);
+}
