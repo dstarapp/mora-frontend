@@ -47,18 +47,18 @@
                     <span @click="goUrl('roverWithdraw', 'ckbtc')">WithDraw</span>
                 </div>
             </div>
-            <div class="list" v-show="searchVal === '' || 'mora'.includes(searchVal.toLocaleLowerCase())">
+            <div class="list" v-show="searchVal === '' || 'roma'.includes(searchVal.toLocaleLowerCase())">
                 <div class="item">
                     <img src="https://infura-ipfs.mora.host/ipfs/QmdhjBCsaCaZr7Qmxz47Ujg8E5zSieWyrhjFffnBbXM5Wd"
                         alt="" />
-                    mora
+                    roma
                 </div>
                 <div class="item">
                     {{ truncateDecimal(store.state.mora_wallet_balance, 4) }}
                 </div>
                 <div class="item">
-                    <span @click="goUrl('roverDeposit', 'mora')">Deposit</span>
-                    <span @click="goUrl('roverWithdraw', 'mora')">WithDraw</span>
+                    <span @click="goUrl('roverDeposit', 'roma')">Deposit</span>
+                    <span @click="goUrl('roverWithdraw', 'roma')">WithDraw</span>
                 </div>
             </div>
             <!-- <div

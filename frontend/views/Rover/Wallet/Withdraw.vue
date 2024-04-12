@@ -52,8 +52,8 @@ const options = [
         label: 'CKBTC',
     },
     {
-        value: 'mora',
-        label: 'MORA',
+        value: 'roma',
+        label: 'ROMA',
     },
 ];
 
@@ -200,7 +200,7 @@ const confirm = () => {
     if (optionsValue.value === 'ckbtc' && store.state.user_principal) {
         transferCKBTC();
     }
-    if (optionsValue.value === 'mora' && store.state.user_principal) {
+    if (optionsValue.value === 'roma' && store.state.user_principal) {
         transferMora();
     }
 };
@@ -216,7 +216,7 @@ const onMax = () => {
     if (optionsValue.value === 'ckbtc') {
         quantity.value = getAmountMaxCKBTC(banner.value);
     }
-    if (optionsValue.value === 'mora') {
+    if (optionsValue.value === 'roma') {
         quantity.value = getAmountMaxCKBTC(banner.value);
     }
 };
@@ -229,7 +229,7 @@ const refresh = async () => {
     if (optionsValue.value === 'ckbtc' && store.state.user_principal) {
         recordList.value = await getCkbtcTransactionsList();
     }
-    if (optionsValue.value === 'mora' && store.state.user_principal) {
+    if (optionsValue.value === 'roma' && store.state.user_principal) {
         recordList.value = await getMoraTransactionsList();
     }
 };
@@ -257,7 +257,7 @@ watch(
             banner.value = store.state.ckbtc_wallet_balance;
             recordList.value = await getCkbtcTransactionsList();
         }
-        if (optionsValue.value === 'mora' && store.state.user_principal) {
+        if (optionsValue.value === 'roma' && store.state.user_principal) {
             bannerAddress.value = store.state.user_principal;
             banner.value = store.state.mora_wallet_balance;
             recordList.value = await getMoraTransactionsList();
@@ -306,7 +306,7 @@ onMounted(() => {
                     <h3>
                         {{ $t('roverWallet.withdraws.t2') }}
                     </h3>
-                    <em v-if="optionsValue === 'mora'">
+                    <em v-if="optionsValue === 'roma'">
                         {{ truncateDecimal(store.state.mora_wallet_balance, 4) }} {{ optionsValue }}
                     </em>
                     <em v-if="optionsValue === 'ckbtc'">

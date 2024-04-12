@@ -286,15 +286,15 @@ const Rover = {
         addressError: 'Invalid principal id or address id',
         principalExist: 'principal ID no exist',
         deposits: {
-            t1: 'Send ICP to this address',
-            t2: 'Send ICP to this address',
+            t1: 'Select token to deposit',
+            t2: 'Send {0} to this address',
             t3: 'Deposit record',
         },
         withdraws: {
             t1: 'Currency withdrawn',
             t2: 'Withdrawal quantity',
             t3: 'Withdrawals record',
-        }
+        },
     },
     roverCandy: {
         title: 'Candy Box',
@@ -309,17 +309,17 @@ const Rover = {
             t1: 'Approve',
             t2: 'Cancel Transfer',
             t3: 'Transfer',
-            t4: 'Split'
+            t4: 'Split',
         },
         tab: {
             t1: 'My inscriptions',
-            t2: 'History'
+            t2: 'History',
         },
         placeholder: {
-            transfer: 'Please fill in the price'
+            transfer: 'Please fill in the price',
         },
         split: {
-            title: 'Amount Split'
+            title: 'Amount Split',
         },
         history: {
             inscription: 'Inscription',
@@ -327,8 +327,8 @@ const Rover = {
             amount: 'Amount',
             from: 'From',
             to: 'To',
-            time: 'Time'
-        }
+            time: 'Time',
+        },
     },
     subOrder: {
         title: 'Order list',

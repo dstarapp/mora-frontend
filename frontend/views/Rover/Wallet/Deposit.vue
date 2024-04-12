@@ -25,8 +25,8 @@ const options = [
         label: 'CKBTC',
     },
     {
-        value: 'mora',
-        label: 'MORA',
+        value: 'roma',
+        label: 'ROMA',
     },
 ];
 
@@ -67,7 +67,7 @@ watch(
             bannerAddress.value = store.state.user_principal;
             recordList.value = await getCkbtcTransactionsList();
         }
-        if (optionsValue.value === 'mora' && store.state.user_principal) {
+        if (optionsValue.value === 'roma' && store.state.user_principal) {
             bannerAddress.value = store.state.user_principal;
             recordList.value = await getMoraTransactionsList();
         }
@@ -110,7 +110,7 @@ watch(
             </div>
             <div class="item">
                 <span class="num">2</span>
-                <h3>{{ $t('roverWallet.deposits.t2') }}</h3>
+                <h3>{{ $t('roverWallet.deposits.t2', [optionsValue.toUpperCase()]) }}</h3>
                 <div class="flex justify-between items-center pt-3">
                     <p>{{ bannerAddress }}</p>
                     <button class="copy" @click="copyText(bannerAddress)">
