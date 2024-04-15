@@ -10,7 +10,7 @@
     <Login v-if="isOpenLogin" @close="isOpenLogin = false" />
     <Indexing v-if="store.state.global_loading" />
     <Privacy v-if="isPrivacy" :privacyCallback="privacyCallback" />
-    <!-- <CheckCode /> -->
+    <PublicSale v-if="isShowSnsSale" @close="closeSns" />
 </template>
 
 <script lang="ts">
@@ -53,6 +53,8 @@ import { InitWallet, InitWalletCkBtc, InitWalletMora } from '@/utils/wallet';
 import { createActor, handleIdentityAgent } from '@/request/agent';
 import { Usergeek } from 'usergeek-ic-js';
 
+import PublicSale from '@/components/PublicSale.vue';
+
 export default defineComponent({
     components: {
         NProgress,
@@ -61,6 +63,7 @@ export default defineComponent({
         Indexing,
         CheckCode,
         Privacy,
+        PublicSale
     },
     name: 'App',
     setup() {
@@ -922,6 +925,10 @@ export default defineComponent({
         provide('setIsOpenLogin', (s: boolean) => (isOpenLogin.value = s));
         provide('refreshCyclesQuantity', refreshCyclesQuantity);
 
+        const isShowSnsSale = ref(true)
+        const closeSns = () => {
+            isShowSnsSale.value = false;
+        }
         return {
             currentLoginWay,
             isOpenLogin,
@@ -932,6 +939,8 @@ export default defineComponent({
             keepAliveExclude,
             isPrivacy,
             privacyCallback,
+            isShowSnsSale,
+            closeSns
         };
     },
 });
